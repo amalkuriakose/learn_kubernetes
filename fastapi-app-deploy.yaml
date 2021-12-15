@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-demo-app
+  labels:
+    app: fastapi-demo-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fastapi-demo-app
+  template:
+    metadata:
+      labels:
+        app: fastapi-demo-app
+    spec:
+      containers:
+      - name: fastapi-demo-app
+        image: fastapi-demo-app:v1.0.0
+        ports:
+        - containerPort: 8000
